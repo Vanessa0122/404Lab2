@@ -12,7 +12,7 @@ def main():
         print('Starting proxy server')
         proxy_start.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         proxy_start.bind((HOST, PORT))
-        proxy_start.listen(1) #only listen to 1 connection  
+        proxy_start.listen() #only listen to 1 connection  
 
         while True:
             conn, addr = proxy_start.accept() #accept incoming connections

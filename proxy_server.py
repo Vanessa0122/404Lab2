@@ -2,17 +2,19 @@ import socket
 
 HOST = '127.0.0.1'
 PORT = 8001
-BUFFER_SIZE = 1024
+BUFFER_SIZE = 4096
 
 def main():
     host = 'www.google.com'
     port = 80 
+    #Connecting local to proxy start 
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as proxy_start:
         print('Starting proxy server')
         proxy_start.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
         proxy_start.bind((HOST, PORT))
         proxy_start.listen(1) #only listen to 1 connection  
 
+        #Connecting proxy start to google (proxy_end)
         while True:
             conn, addr = proxy_start.accept() #accept incoming connections
             print('Connected by: ', addr)

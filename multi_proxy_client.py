@@ -1,5 +1,6 @@
 import socket 
 from multiprocessing import Pool  
+import time
 
 HOST = '127.0.0.1'
 PORT = 8001
@@ -22,6 +23,7 @@ def connect(address):
         s.shutdown(socket.SHUT_WR)
         full_data = s.recv(BUFFER_SIZE)
         print(full_data)
+        time.sleep(1.0)
     except Exception as e:
         print(e)
     finally: 

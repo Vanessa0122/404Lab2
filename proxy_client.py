@@ -4,7 +4,7 @@ import socket
 
 HOST = '127.0.0.1'
 PORT = 8001
-BUFFER_SIZE = 1024
+BUFFER_SIZE = 4096
 
 #Has to be separated by \r\n otherwise it won't work 
 payload = 'GET / HTTP/1.0\r\nHost: www.google.com\r\n\r\n'
